@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
 
+
 class Main extends Component {
     render(){
         return(
-            <h1>It's a Main!!</h1>
+            <div className="main-container">
+                {this.props.children}
+            </div>
+            
         );
     }
 }
