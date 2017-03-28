@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
+import {Router, Route, IndexRoute, browserHistory} from 'react-router';
+import Main from './components/Main';
+import Home from './components/Home';
 import './App.css';
 
-class App extends Component {
-  render() {
+let App = () => {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Router history={browserHistory}>
+        <Route path='/' component={Main}/>
+        <Route path='home' component={Home}/>
+      </Router>
     );
-  }
+  
 }
 
 export default App;
