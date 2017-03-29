@@ -20,3 +20,5 @@ const Prompt = (props) => {
         </div>
     );
 }
+
+export default Prompt;
