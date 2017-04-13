@@ -9,9 +9,18 @@ class PromptContainer extends Component{
         };
     }
 
+    handleUpdateUser = (e) => {
+        console.log(e.target.value);
+        this.state({
+            username: e.target.value
+        });
+    }
+
     render(){
         return(
-            <Prompt header='Player'/>
+            <Prompt
+            onUpdateUser={this.handleUpdateUser} 
+            header='Player'/>
         );
     }
 }

@@ -7,7 +7,6 @@ class Main extends Component {
             <div className="main-container">
                 {this.props.children}
             </div>
-            
         );
     }
 }
