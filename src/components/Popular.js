@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import * as api from '../utils/api';
 
 const SelectLanguage = (props) => {
     let languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python'];
@@ -12,7 +13,7 @@ const SelectLanguage = (props) => {
                     key={language}>
                     {language}
                     </li>
-                    );
+                );
             })}
         </ul>
     );
@@ -22,8 +23,16 @@ class Popular extends Component {
     constructor(props){
         super(props);
         this.state = {
-            selectedLanguage: 'All'
+            selectedLanguage: 'All',
+            repos: null
         };
+    }
+
+    componentDidMount(){
+          api.fetchPopularRepos(this.state.selectedLanguage)
+            .then((repos)=>{
+                console.log(repos);
+            });
     }
 
     updateLanguage = (lang) => {
