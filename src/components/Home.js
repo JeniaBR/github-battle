@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import octacat from '../img/linktocat.png';
-import '../styles/styles.css'
 
 class Home extends Component {
     render(){
@@ -12,7 +11,7 @@ class Home extends Component {
                 <Link className='button' to='/battle'>
                   Battle
                 </Link>
-                <img className="img-responsive imageCenter" src={octacat} alt="Octa Cat"/>
+                <img className="imageCenter" src={octacat} alt="Octa Cat"/>
             </div>
         );
     }

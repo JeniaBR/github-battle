@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
-import ReactRouter, {BrowserRouter, Route} from 'react-router-dom';
+import ReactRouter, {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Nav from './components/Nav';
 import Popular from './components/Popular';
-import Main from './components/Main';
+import Battle from './components/Battle';
 import Home from './components/Home';
-import PromptContainer from './containers/PromptContainer';
 import './styles/index.css'
 
 class App extends Component {
@@ -13,8 +12,12 @@ class App extends Component {
       <BrowserRouter> 
         <div className='container'>
           <Nav/>
-          <Route exact path='/' component={Home}/>
-          <Route path='/popular' component={Popular} />
+          <Switch>
+            <Route exact path='/' component={Home}/>
+            <Route exact path='/battle' component={Battle}/>
+            <Route path='/popular' component={Popular}/>
+            <Route render={()=>{return(<p>Page Not Found!</p>);}}/>
+          </Switch>
         </div>
       </BrowserRouter>
     )
