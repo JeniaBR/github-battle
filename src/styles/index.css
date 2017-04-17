@@ -23,6 +23,7 @@ a {
 .row {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .column {
@@ -135,5 +136,18 @@ a {
   margin-right: auto;
   width: 50%;
   height: 50%;
+}
+
+.reset {
+  border: none;
+  background: transparent;
+  color: #d0021b;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.reset:hover {
+  cursor: pointer;
 }
 
