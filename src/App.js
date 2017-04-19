@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ReactRouter, {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Nav from './components/Nav';
 import Popular from './components/Popular';
 import Battle from './components/Battle';

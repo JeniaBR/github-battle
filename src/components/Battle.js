@@ -1,24 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-
-const PlayerPreview = (props) => {
-  return(
-    <div>
-      <div className="column">
-        <img src={props.avatar} alt={`Avatar for ${props.username}`} className="avatar"/>
-        <h2 className="username">@{props.username}</h2>
-      </div>
-      <button className="reset" onClick={props.onReset.bind(null, props.id)}>Reset</button>
-    </div>
-  );
-}
-
-PlayerPreview.propTypes = {
-  avatar: React.PropTypes.string.isRequired,
-  username: React.PropTypes.string.isRequired,
-  id: React.PropTypes.string.isRequired,
-  onReset: React.PropTypes.func.isRequired
-}
+import PlayerPreview from './PlayerPreview';
 
 class PlayerInput extends Component {
   constructor(props){
@@ -111,9 +93,13 @@ class Battle extends Component {
       <div>
         <div className="row">
           {!playerOneName && <PlayerInput id='playerOne' label='Player One' onSubmit={this.handleSubmit}/>}
-          {playerOneImage !== null && <PlayerPreview id='playerOne' avatar={playerOneImage} username={playerOneName} onReset={this.handleReset}/>}
+          {playerOneImage !== null && <PlayerPreview avatar={playerOneImage} username={playerOneName}>
+            <button className="reset" onClick={this.handleReset.bind(null, 'playerOne')}>Reset</button>
+            </PlayerPreview>}
           {!playerTwoName && <PlayerInput id='playerTwo' label='Player Two' onSubmit={this.handleSubmit}/>}
-          {playerTwoImage !== null && <PlayerPreview id='playerTwo' avatar={playerTwoImage} username={playerTwoName} onReset={this.handleReset}/>}
+          {playerTwoImage !== null && <PlayerPreview avatar={playerTwoImage} username={playerTwoName}>
+            <button className="reset" onClick={this.handleReset.bind(null, 'playerTwo')}>Reset</button>
+            </PlayerPreview>}
         </div>
         {playerOneImage && playerTwoImage && 
         <Link className="button" to={{pathname:`${match.url}/results`,
