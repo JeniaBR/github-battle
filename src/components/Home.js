@@ -8,10 +8,10 @@ class Home extends Component {
             <div className="home-container">
                 <h1>Github Battle</h1>
                 <p className="lead">Some fancy motto</p>
+                <img className="imageCenter" src={octacat} alt="Octa Cat"/>
                 <Link className='button' to='/battle'>
                   Battle
                 </Link>
-                <img className="imageCenter" src={octacat} alt="Octa Cat"/>
             </div>
         );
     }
